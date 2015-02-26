@@ -139,9 +139,17 @@ function drawScores() {
 				document.getElementById(i + '-' + k + 't-field').value = parseInt(document.getElementById(i + '-' + k + 't-field').value) + parseInt(document.getElementById(i + '-' + k + 'c-field').value);
 				document.getElementById(i + '-' + k + 'c').innerHTML = document.getElementById(i + '-' + k + 'c-field').value;
 			}
+			if(k < 10) {
+				if(document.getElementById(i + '-' + k + 'a-field').value == 'X') {
+					if(document.getElementById(i + '-' + (k+1) + 'a-field').value != 'X') {
+						document.getElementById(i + '-' + k + 't-field').value = parseInt(document.getElementById(i + '-' + k + 't-field').value) + parseInt(document.getElementById(i + '-' + (k+1) + 'a-field').value);
+					}
+				}
+			}
+			
 			document.getElementById(i + '-' + k + 'a').innerHTML = document.getElementById(i + '-' + k + 'a-field').value;
 			document.getElementById(i + '-' + k + 'b').innerHTML = document.getElementById(i + '-' + k + 'b-field').value;
-			document.getElementById(i + '-' + k + 't').innerHTML = document.getElementById(i + '-' + k + 't-field').value;
+			document.getElementById(i + '-' + k + 't').innerHTML = parseInt(document.getElementById(i + '-' + k + 't-field').value);
 		document.getElementById(i + '-total-field').value = parseInt(document.getElementById(i + '-total-field').value) + parseInt(document.getElementById(i + '-' + k + 't-field').value);
 		document.getElementById(i + '-' + 'total').innerHTML = document.getElementById(i + '-' + 'total-field').value;
 		}
